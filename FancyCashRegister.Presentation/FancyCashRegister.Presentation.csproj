@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<LangVersion>9</LangVersion>
+		<UseWindowsForms>true</UseWindowsForms>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<RootNamespace>FancyCashRegister</RootNamespace>
+		<AssemblyName>FancyCashRegister</AssemblyName>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf">
+			<Version>3.15.8</Version>
+		</PackageReference>
+		<PackageReference Include="K4os.Compression.LZ4">
+			<Version>1.2.6</Version>
+		</PackageReference>
+		<PackageReference Include="K4os.Compression.LZ4.Streams">
+			<Version>1.2.6</Version>
+		</PackageReference>
+		<PackageReference Include="K4os.Hash.xxHash">
+			<Version>1.0.6</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+		<PackageReference Include="SSH.NET">
+			<Version>2020.0.1</Version>
+		</PackageReference>
+		<PackageReference Include="System.Buffers">
+			<Version>4.5.1</Version>
+		</PackageReference>
+		<PackageReference Include="System.Memory">
+			<Version>4.5.4</Version>
+		</PackageReference>
+		<PackageReference Include="System.Numerics.Vectors">
+			<Version>4.5.0</Version>
+		</PackageReference>
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+			<Version>5.0.0</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="..\.editorconfig" Link=".editorconfig" />
+		<None Include="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Update="Forms\LoginForm.resx">
+			<DependentUpon>LoginForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Forms\MainForm.resx">
+			<DependentUpon>MainForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Forms\TestForm.resx">
+			<DependentUpon>TestForm.cs</DependentUpon>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\FancyCashRegister.Domain\FancyCashRegister.Domain.csproj" />
+	  <ProjectReference Include="..\FancyCashRegister.Services\FancyCashRegister.Services.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Update="App.secret.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="ConnectionStrings.secret.config">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\Pictures\pic_1.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+</Project>
