@@ -18,5 +18,7 @@ namespace FancyCashRegister.Domain.Models
         public BindingList<OrderProduct> Producten { get; set; } = new BindingList<OrderProduct>();
         public bool Betaald { get; set; }
         public Korting ActieveKorting { get; set; }
+        public int Id { get; set; }
+        public DateTimeOffset AanmaakDatum { get; set; }
     }
 }
